@@ -12,9 +12,40 @@
     var app = angular.module('tuto', [])
 
     // Création d'un controller, et attachement d'une variable au scope.
-    app.controller('HelloCtrl', function($scope){
+    app.controller('CommentsCtrl', function($scope){
         // Attachement d'une donnée au scope
-        $scope.hello = "Hello"
+        $scope.comments = [
+              {
+                "username": "Adams",
+                "city": "Crisman",
+                "email": "adamsroth@nixelt.com",
+                "content": "Irure laborum dolore elit velit aute ipsum aliquip fugiat aliquip sint et deserunt reprehenderit. Laboris nostrud amet culpa minim. Commodo reprehenderit ipsum ex pariatur deserunt exercitation. Eiusmod ea eu tempor mollit duis nisi ea veniam id deserunt culpa anim voluptate aute. Mollit esse nisi tempor officia ea et dolore consequat sint aute ipsum sit cillum qui."
+              },
+              {
+                "username": "Madeline",
+                "city": "Waukeenah",
+                "email": "madelineroth@nixelt.com",
+                "content": "Esse aliqua deserunt cillum pariatur eu consectetur velit consequat minim id deserunt est cillum do. Nisi excepteur quis nulla non esse elit nulla officia reprehenderit non sunt eu proident. Dolore deserunt officia nulla ad laboris id commodo cillum laborum. Reprehenderit laboris nulla laborum voluptate. Officia occaecat reprehenderit enim veniam dolor exercitation dolor id qui."
+              },
+              {
+                "username": "Figueroa",
+                "city": "Onton",
+                "email": "figueroaroth@nixelt.com",
+                "content": "Aliqua dolore tempor Lorem non qui Lorem sunt cupidatat commodo nulla occaecat. Anim exercitation elit eiusmod veniam dolore exercitation voluptate aliqua aliquip quis. Magna sint aliqua Lorem irure mollit reprehenderit incididunt culpa occaecat nisi. Sit est nostrud tempor et ipsum. Dolor minim et nisi reprehenderit ullamco dolore."
+              },
+              {
+                "username": "Janelle",
+                "city": "Cawood",
+                "email": "janelleroth@nixelt.com",
+                "content": "Do cupidatat labore id esse laborum amet ex commodo consequat sit laborum elit irure. Eiusmod eiusmod duis qui dolore ea. Deserunt nostrud pariatur ullamco excepteur officia proident magna exercitation ex Lorem qui. Exercitation culpa reprehenderit proident fugiat exercitation sint qui aliqua dolore do velit minim sunt duis. Minim anim magna ex eiusmod ex culpa incididunt."
+              },
+              {
+                "username": "Dunn",
+                "city": "Odessa",
+                "email": "dunnroth@nixelt.com",
+                "content": "Aliquip do exercitation commodo officia deserunt adipisicing. Amet consectetur culpa sit exercitation nisi nisi irure aute non reprehenderit Lorem ad. Deserunt officia amet adipisicing pariatur nulla aliquip sunt voluptate occaecat sint. Do sunt quis nisi deserunt laborum occaecat aliquip occaecat sit amet. Qui dolor et ea exercitation reprehenderit culpa duis ad sit cupidatat occaecat sit eu eiusmod."
+              }
+            ]
     })
 
     </script>
@@ -41,13 +72,10 @@
       </select>
       
       
-        <div ng-init="users=[{username:'Marx', content:'Xalut les copains'},
-                      {username:'Lenine', content:'ca chauffe chez vous'},
-                      {username:'Hitler', content:'Le four ou au moulin'}
-                      ]">
-            <div ng-repeat="user in users | filter:{content:query} | orderBy:order"> 
-               <p><strong>{{user.username}}</strong></p>
-               <p>{{user.content}}</p>
+        <div ng-controller="CommentsCtrl">
+            <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order"> 
+               <p><strong>{{comment.username}}</strong></p>
+               <p>{{comment.email}}</p>
             </div>
                
         </div>
