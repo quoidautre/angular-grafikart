@@ -1,0 +1,57 @@
+<!doctype html>
+<html ng-app="tuto">
+  <head>
+    <meta charset="utf-8" />
+    <title>Hello Angular</title>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script type="text/javascript">
+
+    /* La je recréé l'app à chaque fois pour des raisons de praticité, mais
+        dans un vrai code vous auriez ça dans un fichier à part, une seule
+        fois */
+    var app = angular.module('tuto', [])
+
+    // Création d'un controller, et attachement d'une variable au scope.
+    app.controller('HelloCtrl', function($scope){
+        // Attachement d'une donnée au scope
+        $scope.hello = "Hello"
+    })
+
+    </script>
+  </head>
+  <body ng-app >
+    <!-- Affichage du message attaché au scope -->
+    <h1>{{ hello }}</h1>
+ <!--       <p>        <input type="text" ng-model="task">        {{task}}              </p>-->
+
+
+        
+<!--
+        <div ng-init ="users=['toto','tutu','marc']">
+            <ul>
+                <li ng-repeat="user in users | filter:query"> {{user | uppercase}}</li>
+            </ul>
+                {{users | filter:'M'}}
+        </div>
+      -->  
+      <input type="text" ng-model="query"/>
+      <select ng-model="order">
+          <option value="username">Organiser par nom !</option>
+          <option value="content">Organiser par contenu...</option>
+      </select>
+      
+      
+        <div ng-init="users=[{username:'Marx', content:'Xalut les copains'},
+                      {username:'Lenine', content:'ca chauffe chez vous'},
+                      {username:'Hitler', content:'Le four ou au moulin'}
+                      ]">
+            <div ng-repeat="user in users | filter:{content:query} | orderBy:order"> 
+               <p><strong>{{user.username}}</strong></p>
+               <p>{{user.content}}</p>
+            </div>
+               
+        </div>
+
+  </body>
+  
+</html>
