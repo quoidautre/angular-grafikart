@@ -1,15 +1,16 @@
 <!doctype html>
-<html ng-app="tuto">
+<html ng-app="MonApp">
   <head>
     <meta charset="utf-8" />
     <title>Hello Angular</title>
-    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.26/angular.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.3.9/angular-animate.min.js"></script>
     <script type="text/javascript">
 
     /* La je recréé l'app à chaque fois pour des raisons de praticité, mais
         dans un vrai code vous auriez ça dans un fichier à part, une seule
         fois */
-    var app = angular.module('tuto', [])
+    var app = angular.module('MonApp', [])
 
     // Création d'un controller, et attachement d'une variable au scope.
     app.controller('CommentsCtrl', function($scope){
@@ -19,7 +20,7 @@
                 "username": "Adams",
                 "city": "Crisman",
                 "email": "adamsroth@nixelt.com",
-                "content": "Irure laborum dolore elit velit aute ipsum aliquip fugiat aliquip sint et deserunt reprehenderit. Laboris nostrud amet culpa minim. Commodo reprehenderit ipsum ex pariatur deserunt exercitation. Eiusmod ea eu tempor mollit duis nisi ea veniam id deserunt culpa anim voluptate aute. Mollit esse nisi tempor officia ea et dolore consequat sint aute ipsum sit cillum qui."
+                "content": "collins Irure laborum dolore elit velit aute ipsum aliquip fugiat aliquip sint et deserunt reprehenderit. Laboris nostrud amet culpa minim. Commodo reprehenderit ipsum ex pariatur deserunt exercitation. Eiusmod ea eu tempor mollit duis nisi ea veniam id deserunt culpa anim voluptate aute. Mollit esse nisi tempor officia ea et dolore consequat sint aute ipsum sit cillum qui."
               },
               {
                 "username": "Madeline",
