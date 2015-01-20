@@ -1,14 +1,16 @@
+<p>Comments...!</p>
+<a href="#/">Revenir</a>
+
 <input type="text" ng-model="query"/>
 {{query}}
-<select ng-model="order">
+ <select ng-model="order">
   <option value="username">Organiser par nom !</option>
   <option value="content">Organiser par contenu...</option>
 </select>
+<h1>{{title}}</h1>
 
-<div ng-controller="CommentsCtrl">
-    <div ng-repeat="comment in comments | filter:{content:query} | orderBy:order"> 
-       <p><strong>{{comment.username}}</strong></p>
-       <p>{{comment.email}}</p>
+    <div ng-repeat="comment in comments | orderBy:order"> 
+       <p><strong>- {{comment.username}}</strong></p>
+       <p>- {{comment.content}}</p>
     </div>
-</div>
 
