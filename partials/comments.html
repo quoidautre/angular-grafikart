@@ -1,16 +1,38 @@
-<p>Comments...!</p>
 <a href="#/">Revenir</a>
 
-<input type="text" ng-model="query"/>
-{{query}}
- <select ng-model="order">
-  <option value="username">Organiser par nom !</option>
-  <option value="content">Organiser par contenu...</option>
-</select>
-<h1>{{title}}</h1>
+  <div ng-hide="loading">
+   <!--
+    <input type="text" ng-model="query"/>
+    {{query}}
+    <select ng-model="order">
+        <option value="username">Organiser par nom !</option>
+        <option value="content">Organiser par contenu...</option>
+    </select>
+    -->
+    <h1>{{title}}</h1>
 
-    <div ng-repeat="comment in comments | orderBy:order"> 
-       <p><strong>- {{comment.username}}</strong></p>
-       <p>- {{comment.content}}</p>
+    <div ng-test username="newComment.username">
+        <div ng-repeat="comment in comments | orderBy:order"> 
+         <!--  $scope.selectComment = function() { //-->
+          <ng-comment comment="comment" selection="selectComment()"></ng-comment> 
+        </div>
     </div>
-
+    
+    <time></time>              
+    
+    <form ng-submit="addComment()" name"addForm" class="form-horizontal">
+       <div class="col-lg-10">
+        
+        <input type="text" placeholder="username" ng-model="newComment.username" class="form-control"/>
+        <input type="text" placeholder="date" ng-model="newComment.date" class="form-control datepicker" datepicker-options="{today:'Aujourdhui'}"/>
+        <input type="text" placeholder="city" ng-model="newComment.city" class="form-control"/>
+        <input type="text" placeholder="email" ng-model="newComment.email" class="form-control"/>
+        <textarea name="" id="" cols="30" rows="5" ng-model="newComment.content" class="form-control"></textarea>
+        
+        <div class="col-lg-10 col-lg-offset-2">
+              <button class="btn btn-default">Cancel</button>
+              <button class="btn btn-primary" type="submit">Submit</button>
+        </div>
+        
+    </form>
+</div>

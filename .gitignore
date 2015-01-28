@@ -1,1 +1,4 @@
 *.*~
+node_modules/*
+themes/*
+js/plugins/pickadate/*
