@@ -1,24 +1,22 @@
 <a href="#/">Revenir</a>
 
   <div ng-hide="loading">
-   <!--
-    <input type="text" ng-model="query"/>
-    {{query}}
-    <select ng-model="order">
-        <option value="username">Organiser par nom !</option>
-        <option value="content">Organiser par contenu...</option>
-    </select>
-    -->
-    <h1>{{title}}</h1>
-
-    <div ng-test username="newComment.username">
-        <div ng-repeat="comment in comments | orderBy:order"> 
-         <!--  $scope.selectComment = function() { //-->
-          <ng-comment comment="comment" selection="selectComment()"></ng-comment> 
-        </div>
-    </div>
-    
-    <time></time>              
+    <ng-tabs>
+        <ng-tab title="Article">
+            <h1>{{post.name}}</h1>    
+            <p>{{post.content}}</p>
+        </ng-tab>
+         
+        <ng-tab title="{{comments.length}} commentaires">
+           
+            <span class="label label-primary">Voir les commentaires ({{comments.length}})</span>
+            
+            <div ng-repeat="comment in comments | orderBy:order"> 
+              <ng-comment comment="comment" selection="selectComment()"></ng-comment> 
+            </div>
+            <time></time>              
+        </ng-tab>
+    </ng-tabs>
     
     <form ng-submit="addComment()" name"addForm" class="form-horizontal">
        <div class="col-lg-10">

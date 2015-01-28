@@ -3,7 +3,7 @@ app.directive('time', function(dateFilter, $interval) {
         scope: {},
         restrict: 'E',
         template: '{{time}}',
-        link : function(scope, element, attrs) {
+        link : function(scope, element, attrs,interval) {
             
             element.on('$destroy', function(){
               $interval.cancel(interval);
